@@ -3198,7 +3198,7 @@ func TestRespond(t *testing.T) {
 			for _, c := range cases {
 				s := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 					if useArrow {
-						r.Header.Add("Accept", "application/vnd.apache.arrow.stream")
+						r.Header.Add("Accept", mimeTypeArrowStream)
 					}
 					api := API{}
 					api.respond(w, r, c.response, nil)
