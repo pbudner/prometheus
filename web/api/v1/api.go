@@ -1563,6 +1563,7 @@ func (api *API) respond(w http.ResponseWriter, r *http.Request, data interface{}
 		if err == nil {
 			return
 		}
+		level.Debug(api.logger).Log("msg", "could not create arrow response", "err", err)
 	}
 
 	statusMessage := statusSuccess

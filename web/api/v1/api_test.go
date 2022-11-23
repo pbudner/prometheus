@@ -3200,7 +3200,9 @@ func TestRespond(t *testing.T) {
 					if useArrow {
 						r.Header.Add("Accept", mimeTypeArrowStream)
 					}
-					api := API{}
+					api := API{
+						logger: log.NewNopLogger(),
+					}
 					api.respond(w, r, c.response, nil)
 				}))
 				defer s.Close()
